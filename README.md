@@ -1,73 +1,126 @@
-# Welcome to your Lovable project
+# Groq-Llama-Genesis: Retrieval-Augmented Generation (RAG) System
 
-## Project info
+## Overview
 
-**URL**: https://lovable.dev/projects/cfed2903-183b-4817-9b69-4d1efc9a580d
+**Groq-Llama-Genesis** is a modern Retrieval-Augmented Generation (RAG) web application that enables users to upload documents, build a knowledge base, and interact with an AI assistant powered by Groq LLMs and LangChain. The system retrieves relevant information from your documents to answer questions with context-aware, accurate responses.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Document Upload & Knowledge Base**: Upload PDF, TXT, or DOCX files to create a searchable knowledge base.
+- **Contextual Q&A**: Ask questions and receive answers grounded in your uploaded documents.
+- **Streaming Chat Interface**: Real-time, conversational UI for interacting with the AI assistant.
+- **Configurable RAG Pipeline**: Adjust model, temperature, chunking, and other parameters.
+- **Analytics & Management**: View stats, clear conversation history, or reset the knowledge base.
+- **Modern UI**: Built with React, shadcn-ui, and Tailwind CSS for a responsive, accessible experience.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cfed2903-183b-4817-9b69-4d1efc9a580d) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Technologies Used
 
-**Use your preferred IDE**
+- [Vite](https://vitejs.dev/) (build tool)
+- [React](https://react.dev/) (UI framework)
+- [TypeScript](https://www.typescriptlang.org/) (type safety)
+- [shadcn-ui](https://ui.shadcn.com/) (UI components)
+- [Tailwind CSS](https://tailwindcss.com/) (utility-first CSS)
+- [LangChain](https://js.langchain.com/) (RAG orchestration)
+- [Groq](https://console.groq.com/) (LLM provider)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting Started
 
-Follow these steps:
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [npm](https://www.npmjs.com/) or [bun](https://bun.sh/) (for dependency management)
+
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. Clone the repository
 git clone <YOUR_GIT_URL>
+cd groq-llama-genesis
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# 2. Install dependencies
+npm install
+# or
+bun install
 ```
 
-**Edit a file directly in GitHub**
+### Running the Development Server
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+npm run dev
+# or
+bun run dev
+```
 
-**Use GitHub Codespaces**
+The app will be available at [http://localhost:8080](http://localhost:8080) by default.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## Usage
 
-This project is built with:
+1. **Initialize the RAG System**: On first load, enter your [Groq API key](https://console.groq.com/keys) and configure model parameters as desired.
+2. **Upload Documents**: Add PDF, TXT, or DOCX files to your knowledge base.
+3. **Ask Questions**: Use the chat interface to ask questions. The AI will answer using only the information from your uploaded documents.
+4. **Manage Data**: Use the Analytics and Settings tabs to view stats, clear history, or reset the knowledge base.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## Configuration
 
-Simply open [Lovable](https://lovable.dev/projects/cfed2903-183b-4817-9b69-4d1efc9a580d) and click on Share -> Publish.
+You can configure the following parameters in the UI:
+- **Groq API Key** (required)
+- **Model**: Choose from Llama 3.1 8B, Mixtral 8x7B, or Llama 3.1 70B
+- **Temperature**: Controls randomness of responses
+- **Max Tokens**: Maximum length of generated answers
+- **Top K**: Number of context chunks to retrieve
+- **Chunk Size / Overlap**: Controls document splitting granularity
 
-## Can I connect a custom domain to my Lovable project?
+No `.env` file is required; all configuration is handled in the UI.
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Supported Document Types
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- PDF (`.pdf`)
+- Plain Text (`.txt`)
+- Microsoft Word (`.docx`)
+
+Maximum file size: **10MB** per document.
+
+---
+
+## Building for Production
+
+```sh
+npm run build
+# or
+bun run build
+```
+
+The production-ready files will be output to the `dist/` directory. You can deploy these files to any static hosting provider (e.g., Vercel, Netlify, GitHub Pages, etc.).
+
+To preview the production build locally:
+
+```sh
+npm run preview
+# or
+bun run preview
+```
+
+---
+
+## License
+
+This project is provided as-is for educational and research purposes. See [LICENSE](LICENSE) for details.
+
+---
+
+## Acknowledgments
+- [LangChain](https://js.langchain.com/)
+- [Groq](https://console.groq.com/)
+- [shadcn-ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
