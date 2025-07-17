@@ -92,7 +92,7 @@ export class RAGPipeline {
       const formattedContext = formatContextChunks(relevantChunks);
       
       // Step 3: Create prompt with conversation history
-      const prompt = createConversationPrompt(question, formattedContext, this.conversationHistory);
+      const prompt = await createConversationPrompt(question, formattedContext, this.conversationHistory);
       
       // Step 4: Generate answer
       const answer = await this.llmProvider.generate(prompt);
@@ -150,7 +150,7 @@ export class RAGPipeline {
 
       // Step 2: Format context and create prompt
       const formattedContext = formatContextChunks(relevantChunks);
-      const prompt = createConversationPrompt(question, formattedContext, this.conversationHistory);
+      const prompt = await createConversationPrompt(question, formattedContext, this.conversationHistory);
       
       // Step 3: Stream the answer
       let fullAnswer = '';

@@ -111,11 +111,11 @@ export function formatContextChunks(chunks: Array<{ content: string; metadata: a
 /**
  * Helper function to create a conversation-aware prompt
  */
-export function createConversationPrompt(
+export async function createConversationPrompt(
   question: string,
   context: string,
   conversationHistory?: Array<{ question: string; answer: string }>
-): string {
+): Promise<string> {
   let prompt = '';
   
   if (conversationHistory && conversationHistory.length > 0) {
@@ -126,5 +126,6 @@ export function createConversationPrompt(
     prompt += '---\n\n';
   }
 
-  return prompt + RAG_PROMPT_TEMPLATE.format({ context, question });
+  const formattedPrompt = await RAG_PROMPT_TEMPLATE.format({ context, question });
+  return prompt + formattedPrompt;
 }
