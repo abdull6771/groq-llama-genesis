@@ -6,7 +6,7 @@
 import { RAGConfig } from './types';
 
 export const DEFAULT_RAG_CONFIG: Omit<RAGConfig, 'groqApiKey'> = {
-  model: 'mixtral-8x7b-32768',
+  model: 'llama-3.1-8b-instant',
   temperature: 0.1,
   maxTokens: 1024,
   topK: 4,
@@ -24,22 +24,22 @@ export const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
 export const GROQ_MODELS = [
   {
+    id: 'llama-3.1-8b-instant',
+    name: 'Llama 3.1 8B',
+    description: 'Fast and efficient for quick responses',
+    contextLength: 128000,
+  },
+  {
     id: 'mixtral-8x7b-32768',
     name: 'Mixtral 8x7B',
     description: 'Best overall performance for most tasks',
     contextLength: 32768,
   },
   {
-    id: 'llama2-70b-4096',
-    name: 'Llama 2 70B',
-    description: 'Excellent reasoning capabilities',
-    contextLength: 4096,
-  },
-  {
-    id: 'gemma-7b-it',
-    name: 'Gemma 7B IT',
-    description: 'Fast and efficient for quick responses',
-    contextLength: 8192,
+    id: 'llama-3.1-70b-versatile',
+    name: 'Llama 3.1 70B',
+    description: 'Excellent reasoning and versatile performance',
+    contextLength: 128000,
   },
 ] as const;
 

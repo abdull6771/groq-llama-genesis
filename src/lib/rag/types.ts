@@ -40,7 +40,7 @@ export interface RAGQuery {
 
 export interface RAGConfig {
   groqApiKey: string;
-  model: 'mixtral-8x7b-32768' | 'llama2-70b-4096' | 'gemma-7b-it';
+  model: 'llama-3.1-8b-instant' | 'mixtral-8x7b-32768' | 'llama-3.1-70b-versatile';
   temperature: number;
   maxTokens: number;
   topK: number;

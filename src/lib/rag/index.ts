@@ -30,7 +30,7 @@ export async function createQuickRAGSystem(groqApiKey: string) {
   const { createRAGPipeline } = await import('./rag-pipeline');
   const pipeline = createRAGPipeline({
     groqApiKey,
-    model: 'mixtral-8x7b-32768',
+    model: 'llama-3.1-8b-instant',
     temperature: 0.1,
     maxTokens: 1024,
     topK: 4,
