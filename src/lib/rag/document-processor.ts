@@ -7,8 +7,8 @@ import { RecursiveCharacterTextSplitter } from '@langchain/textsplitters';
 import { Document, DocumentChunk, RAGConfig } from './types';
 import { SUPPORTED_FILE_TYPES } from './config';
 
-// Import document parsers
-import pdfParse from 'pdf-parse';
+// Import document parsers - browser compatible versions
+import { extractText, getDocumentProxy } from 'unpdf';
 import mammoth from 'mammoth';
 
 export class DocumentProcessor {
@@ -50,15 +50,14 @@ export class DocumentProcessor {
   }
 
   /**
-   * Extract text from PDF file
+   * Extract text from PDF file using unpdf (browser-compatible)
    */
   private async extractFromPDF(file: File): Promise<string> {
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    
     try {
-      const data = await pdfParse(buffer);
-      return data.text;
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await getDocumentProxy(new Uint8Array(arrayBuffer));
+      const { text } = await extractText(pdf, { mergePages: true });
+      return text;
     } catch (error) {
       throw new Error(`Failed to parse PDF: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
