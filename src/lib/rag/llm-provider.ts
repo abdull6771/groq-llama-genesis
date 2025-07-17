@@ -105,13 +105,13 @@ export class GroqLLMProvider implements LLMProvider {
         description: 'Best overall performance for most RAG tasks',
       },
       {
-        id: 'llama2-70b-4096',
-        name: 'Llama 2 70B',
-        description: 'Excellent reasoning capabilities',
+        id: 'llama-3.1-70b-versatile',
+        name: 'Llama 3.1 70B',
+        description: 'Excellent reasoning and versatile performance',
       },
       {
-        id: 'gemma-7b-it',
-        name: 'Gemma 7B IT',
+        id: 'llama-3.1-8b-instant',
+        name: 'Llama 3.1 8B',
         description: 'Fast and efficient for quick responses',
       },
     ];
